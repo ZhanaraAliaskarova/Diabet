@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Diabet</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="statistics">For general statistics, please enter your name and choose the type of your diabetes - Type 1 or Type 2.</string>
+    <string name="type_1">Type 1</string>
+    <string name="type_2">Type 2</string>
+    <string name="processing">Do you agree to the processing of data?</string>
+    <string name="send">Send</string>
+
+
+
+
 </resources>

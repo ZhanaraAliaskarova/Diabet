@@ -6,6 +6,20 @@
     <string name="type_2">Type 2</string>
     <string name="processing">Do you agree to the processing of data?</string>
     <string name="send">Send</string>
+    <string name="affirmation1">Signs of diabetes:</string>
+    <string name="affirmation2">Blurred vision;</string>
+    <string name="affirmation3">Skin itching;</string>
+    <string name="affirmation4">Hunger;</string>
+    <string name="affirmation5">Nausea;</string>
+    <string name="affirmation6">Frequent urination;</string>
+    <string name="affirmation7">intense thirst;</string>
+    <string name="affirmation8">sleepiness.</string>
+
+
+
+
+
+
 
 
 

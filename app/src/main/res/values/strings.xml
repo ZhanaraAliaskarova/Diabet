@@ -14,14 +14,8 @@
     <string name="affirmation6">Frequent urination;</string>
     <string name="affirmation7">intense thirst;</string>
     <string name="affirmation8">sleepiness.</string>
-
-
-
-
-
-
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment"> </string>
 
 
 </resources>

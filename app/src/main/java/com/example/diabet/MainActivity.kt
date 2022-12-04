@@ -5,8 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.diabet.adapter.ItemAdapter
 import com.example.diabet.data.Datasource
 import com.example.diabet.databinding.ActivityMainBinding
 
@@ -15,9 +13,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
-    val fragment1: Fragment = Home()
-    val fragment2: Fragment = Test()
-    val fragment3: Fragment = Map()
+    val fragment1: Fragment = HomeFragment()
+    val fragment2: Fragment = TestFragment()
+    val fragment3: Fragment = MapFragment()
     val fm: FragmentManager = supportFragmentManager
     var active = fragment1
 
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         fm.beginTransaction().add(R.id.frames_layout,fragment1, "1").commit();
 
 
-        replaceFragment(Home())
+        replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
@@ -50,11 +48,9 @@ class MainActivity : AppCompatActivity() {
         }
         val myDataset = Datasource().loadDiabet()
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
-
-
-        recyclerView.setHasFixedSize(true)
+//        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+//        recyclerView.adapter = ItemAdapter(this, myDataset)
+//        recyclerView.setHasFixedSize(true)
     }
 
     private fun replaceFragment(fragment : Fragment){

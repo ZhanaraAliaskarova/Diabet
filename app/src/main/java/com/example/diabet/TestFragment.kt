@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.diabet.R
 import com.example.diabet.data.Note
 import com.example.diabet.ui.notes.NotesViewModel
 import com.example.diabet.utilities.InjectorUtils
@@ -35,8 +34,7 @@ class TestFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_test, container, false)!!
 
         val factory = InjectorUtils.provideNotesViewModelFactory()
-        val viewModel = ViewModelProviders.of(this, factory)
-            .get(NotesViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this, factory)[NotesViewModel::class.java]
 
         viewModel.getNotes().observe(viewLifecycleOwner, Observer{ notes ->
             val stringBuilder = StringBuilder()

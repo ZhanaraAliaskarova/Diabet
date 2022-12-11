@@ -1,10 +1,11 @@
 package com.example.diabet
 
-//import android.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.diabet.adapter.ItemAdapter
 import com.example.diabet.data.Datasource
 import com.example.diabet.databinding.ActivityMainBinding
 
@@ -13,47 +14,40 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
-    val fragment1: Fragment = HomeFragment()
-    val fragment2: Fragment = TestFragment()
-    val fragment3: Fragment = MapFragment()
-    val fm: FragmentManager = supportFragmentManager
-    var active = fragment1
+   // private val fragment1: Fragment = HomeFragment()
+   // private val fragment2: Fragment = TestFragment()
+  //  private val fragment3: Fragment = MapFragment()
+  //  private val fm: FragmentManager = supportFragmentManager
+  //  private var active = fragment1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        fm.beginTransaction().add(R.id.frames_layout, fragment3, "3").hide(fragment3).commit();
-        fm.beginTransaction().add(R.id.frames_layout, fragment2, "2").hide(fragment2).commit();
-        fm.beginTransaction().add(R.id.frames_layout,fragment1, "1").commit();
-
-
         replaceFragment(HomeFragment())
+
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
-            if (it.getItemId() == R.id.home) {
-                fm.beginTransaction().hide(active).show(fragment1).commit()
-                active = fragment1
-            } else if (it.getItemId() == R.id.test) {
-                fm.beginTransaction().hide(active).show(fragment2).commit()
-                active = fragment2
-            } else if (it.getItemId() == R.id.geo) {
-                fm.beginTransaction().hide(active).show(fragment3).commit()
-                active = fragment3
-            }
+            when(it.itemId){
+                R.id.home -> replaceFragment(HomeFragment())
+                R.id.test -> replaceFragment(TestFragment())
+                R.id.geo -> replaceFragment(MapFragment())
 
-            return@setOnItemSelectedListener true
+                else ->{
+
+                }
+            }
+             true
         }
         val myDataset = Datasource().loadDiabet()
 
 //        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-//        recyclerView.adapter = ItemAdapter(this, myDataset)
-//        recyclerView.setHasFixedSize(true)
+  //      recyclerView.adapter = ItemAdapter(this, myDataset)
+    //    recyclerView.setHasFixedSize(true)
     }
 
-    private fun replaceFragment(fragment : Fragment){
+    private fun replaceFragment(fragment : androidx.fragment.app.Fragment){
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
